@@ -3,8 +3,13 @@ package com.github.bodhon.book_storage_system.models;
 import com.github.bodhon.book_storage_system.models.enums.Genre;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.validation.constraints.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,33 +21,46 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class Book {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @NotBlank(message = "Name cannot be blank")
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "author")
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    private Author author;
+    @NotBlank(message = "SKU cannot be blank")
+    @Column(name = "sku", unique = true, nullable = false)
+    private String sku;
 
-    @Column(name = "isbn", nullable = false, unique = true)
-    private String isbn;
+    @NotBlank(message = "Description cannot be blank")
+    @Column(name = "description", nullable = false)
+    private String description;
 
-    @Column(name = "publication_year")
-    private Integer PublicationYear;
-
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "publisher_id")
-    private Publisher publisher;
-
-    @Column(name = "genre")
+    @NotBlank(message = "Genre cannot be blank")
+    @Column(name = "genre", nullable = false)
     private Genre genre;
 
-    @OneToMany(mappedBy = "book")
-    private Set<Copy> copies;
+    @NotNull(message = "Price cannot be null")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
+    @Digits(integer=12, fraction=2, message = "Price format is invalid")
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
+
+    @NotNull(message = "Quantity cannot be null")
+    @Min(value = 0, message = "Quantity cannot be less than 0")
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
+    @UpdateTimestamp
+    @Column(name = "last_modified", nullable = false)
+    private LocalDateTime lastModified;
+
+    @CreationTimestamp
+    @Column(name = "date_created", nullable = false, updatable = false)
+    private LocalDateTime dateCreated;
+
 }
