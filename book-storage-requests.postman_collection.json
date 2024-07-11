@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"qweqwe\",\r\n    \"sku\": \"123\",\r\n    \"description\": \"qwe\",\r\n    \"category\": \"qwe\",\r\n    \"price\": \"123\",\r\n    \"quantity\": \"123\"\r\n}",
+					"raw": "{\r\n    \"name\": \"qweqwe\",\r\n    \"sku\": \"123\",\r\n    \"description\": \"qwe\",\r\n    \"genre\": \"FICTION\",\r\n    \"price\": \"123\",\r\n    \"quantity\": \"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
