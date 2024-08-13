@@ -1,6 +1,6 @@
-package com.github.bodhon.book_storage_system.repositories;
+package com.github.bodhon.book_storage_system.repository;
 
-import com.github.bodhon.book_storage_system.models.Book;
+import com.github.bodhon.book_storage_system.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

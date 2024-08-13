@@ -1,6 +1,6 @@
-package com.github.bodhon.book_storage_system.models;
+package com.github.bodhon.book_storage_system.model;
 
-import com.github.bodhon.book_storage_system.models.enums.Genre;
+import com.github.bodhon.book_storage_system.model.enums.Genre;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,7 +10,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity

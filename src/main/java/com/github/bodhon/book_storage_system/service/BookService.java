@@ -1,7 +1,7 @@
-package com.github.bodhon.book_storage_system.services;
+package com.github.bodhon.book_storage_system.service;
 
-import com.github.bodhon.book_storage_system.models.Book;
-import com.github.bodhon.book_storage_system.repositories.BookRepository;
+import com.github.bodhon.book_storage_system.model.Book;
+import com.github.bodhon.book_storage_system.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

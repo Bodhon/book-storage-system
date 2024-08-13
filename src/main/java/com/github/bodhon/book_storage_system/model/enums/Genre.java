@@ -1,4 +1,4 @@
-package com.github.bodhon.book_storage_system.models.enums;
+package com.github.bodhon.book_storage_system.model.enums;
 
 import lombok.AllArgsConstructor;
 

@@ -1,7 +1,7 @@
-package com.github.bodhon.book_storage_system.controllers;
+package com.github.bodhon.book_storage_system.controller;
 
-import com.github.bodhon.book_storage_system.models.Book;
-import com.github.bodhon.book_storage_system.services.BookService;
+import com.github.bodhon.book_storage_system.model.Book;
+import com.github.bodhon.book_storage_system.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

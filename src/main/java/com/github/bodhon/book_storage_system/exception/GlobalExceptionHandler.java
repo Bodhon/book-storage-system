@@ -1,4 +1,4 @@
-package com.github.bodhon.book_storage_system.exceptions;
+package com.github.bodhon.book_storage_system.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
