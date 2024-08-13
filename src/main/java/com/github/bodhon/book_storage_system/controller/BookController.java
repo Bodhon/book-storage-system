@@ -41,9 +41,9 @@ public class BookController {
         book.setSku(bookDetails.getSku());
         book.setDescription(bookDetails.getDescription());
         book.setGenre(bookDetails.getGenre());
-        book.setPrice(bookDetails.getPrice());
+//        book.setPrice(bookDetails.getPrice());
         book.setQuantity(bookDetails.getQuantity());
-        book.setLastModified(bookDetails.getLastModified());
+        book.setLastQuantityChange(bookDetails.getLastQuantityChange());
         book.setDateCreated(bookDetails.getDateCreated());
 
         final Book updatedProduct = bookService.createBook(book);

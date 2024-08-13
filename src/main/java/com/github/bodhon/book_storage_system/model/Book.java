@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -22,8 +23,7 @@ import java.util.UUID;
 public class Book {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @UuidGenerator
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
@@ -35,28 +35,28 @@ public class Book {
     @Column(name = "sku", unique = true, nullable = false)
     private String sku;
 
-    @NotBlank(message = "Description cannot be blank")
-    @Column(name = "description", nullable = false)
+//    @NotBlank(message = "Description cannot be blank")
+    @Column(name = "description")   //, nullable = false)
     private String description;
 
-    @NotBlank(message = "Genre cannot be blank")
-    @Column(name = "genre", nullable = false)
+//    @NotBlank(message = "Genre cannot be blank")
+    @Column(name = "genre") //, nullable = false)
     private Genre genre;
 
-    @NotNull(message = "Price cannot be null")
-    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
-    @Digits(integer=12, fraction=2, message = "Price format is invalid")
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
+//    @NotNull(message = "Price cannot be null")
+//    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
+//    @Digits(integer=12, fraction=2, message = "Price format is invalid")
+//    @Column(name = "price", nullable = false)
+//    private BigDecimal price;
 
     @NotNull(message = "Quantity cannot be null")
-    @Min(value = 0, message = "Quantity cannot be less than 0")
+    @Min(value = 1, message = "Quantity cannot be less than 1")
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
     @UpdateTimestamp
-    @Column(name = "last_modified", nullable = false)
-    private LocalDateTime lastModified;
+    @Column(name = "last_quantity_change", nullable = false)
+    private LocalDateTime lastQuantityChange;
 
     @CreationTimestamp
     @Column(name = "date_created", nullable = false, updatable = false)

@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class BookService {
 
-    @Autowired
+    @Autowired  // TODO: переделать
     private BookRepository bookRepository;
 
     /**
